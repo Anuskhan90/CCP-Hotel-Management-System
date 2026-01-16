@@ -1,38 +1,11 @@
-
+package com.hotel;
 public class Rooms {
-
-	    private int number;
-	    private RoomType roomType; 
-	    private boolean isOccupied;
-	    private Guest guest; // Room mein kaun ruka hai
-
-	    public Rooms(int number, RoomType roomType) {
-	        this.number = number;
-	        this.roomType = roomType;
-	        this.isOccupied = false;
-	        this.guest = null;
-	    }
-
-	    public int getNumber() {
-	        return number;
-	    }
-
-	    public RoomType getRoomType() {
-	        return roomType;
-	    }
-
-	    public boolean isOccupied() {
-	        return isOccupied;
-	    }
-
-	    // Guest ko room dena
-	    public void setGuest(Guest guest) {
-	        this.guest = guest;
-	        this.isOccupied = (guest != null);
-	    }
-	    
-	    public Guest getGuest() {
-	        return guest;
-	    }
-	}
-
+    private int number;
+    private RoomType type;
+    public Rooms(int number, RoomType type) {
+        if (number <= 0) throw new IllegalArgumentException("Room number 0 se bara hona chahiye");
+        this.number = number; this.type = type;
+    }
+    public int getNumber() { return number; }
+    public RoomType getType() { return type; }
+}
