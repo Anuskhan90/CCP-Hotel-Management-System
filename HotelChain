@@ -1,0 +1,51 @@
+package com.hotel;
+import java.util.*;
+
+public class HotelChain {
+    private String id; // UML: id attribute
+    private List<Hotel> hotels = new ArrayList<>();
+
+    public HotelChain(String id) {
+        // Defensive: ID khali nahi honi chahiye
+        if (id == null || id.trim().isEmpty()) {
+            throw new IllegalArgumentException("Chain ID cannot be empty!");
+        }
+        this.id = id;
+    }
+
+    // --- UML Operations Start ---
+    
+    public void makeReservation() {
+        System.out.println("Making reservation in chain: " + id);
+    }
+
+    public void cancelReservation() {
+        System.out.println("Cancelling reservation...");
+    }
+
+    public void checkInGuest() {
+        System.out.println("Guest checking in...");
+    }
+
+    public void checkOutGuest() {
+        System.out.println("Guest checking out...");
+    }
+
+    public void createReserverPayer() {
+        System.out.println("Creating new payer record...");
+    }
+
+    // UML mein kuch private helper methods bhi hain (- sign ke saath)
+    private boolean canMakeReservation() { return true; }
+    private boolean canCancelReservation() { return true; }
+    private boolean canCheckInGuest() { return true; }
+    private boolean canCheckOutGuest() { return true; }
+
+    // --- UML Operations End ---
+
+    public void addHotel(Hotel hotel) {
+        if (hotel != null) {
+            hotels.add(hotel);
+        }
+    }
+}
